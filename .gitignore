@@ -1,0 +1,8 @@
+# Project
+/node_modules
+/lib
+
+# OSX
+.DS_Store
+*.orig
+*.swp
