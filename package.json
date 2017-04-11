@@ -1,6 +1,6 @@
 {
   "name": "dumb-http-handler",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "description": "A generator for ExpressJS handlers that abstracts away HTTP from controllers.",
   "main": "lib/index.js",
   "author": "Daniel Ferreira",
