@@ -24,12 +24,17 @@ export function createHandler (options) {
 
     const handlerOptions = R.reject(R.prop('controller'), options)
 
-    return Promise.resolve(handler(parameters, handlerOptions))
+    return Promise.resolve()
+      .then(() => handler(parameters, handlerOptions))
       .then((response) => { res.json(response) })
       .catch((err) => {
+        if (controller.errored) {
+          controller.errored(err)
+        }
+
         if (!(err instanceof error.HTTPError)) {
           res.status(500).json({
-            error: error.formatError(error.UnknownError())
+            error: error.formatError(new error.UnknownError())
           })
         }
 
