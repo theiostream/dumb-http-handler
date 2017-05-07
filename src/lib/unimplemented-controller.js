@@ -19,3 +19,11 @@ export function PATCH () {
 export function DELETE () {
   throw error.UnimplementedError('No controller implemented for handler generation.')
 }
+
+export default {
+  GET,
+  POST,
+  PUT,
+  PATCH,
+  DELETE
+}

@@ -1,4 +1,4 @@
-export const statusCodeMap = {
+const statusCodeMap = {
   400: 'invalid_parameter',
   401: 'action_unauthorized',
   403: 'action_forbidden',
@@ -32,4 +32,10 @@ export class UnimplementedError extends HTTPError {
     super()
     this.statusCode = 501
   }
+}
+export default {
+  formatError,
+  HTTPError,
+  UnknownError,
+  UnimplementedError,
 }

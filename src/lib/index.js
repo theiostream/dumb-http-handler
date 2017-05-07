@@ -1,8 +1,8 @@
-import * as R from 'ramda'
-import * as Promise from 'bluebird'
+import R from 'ramda'
+import Promise from 'bluebird'
 
-import * as errorLib from './error'
-import * as unimplementedController from './unimplemented-controller'
+import errorLib from './error'
+import unimplementedController from './unimplemented-controller'
 
 export const error = errorLib
 
@@ -73,4 +73,14 @@ export function createDeleteHandler (options) {
   return createHandler(R.merge(options, {
     method: 'DELETE'
   }))
+}
+
+export default {
+  error: errorLib,
+  createHandler,
+  createGetHandler,
+  createPostHandler,
+  createPutHandler,
+  createPatchHandler,
+  createDeleteHandler
 }
