@@ -22,7 +22,8 @@ export function createHandler (options) {
       req.params
     )
 
-    const handlerOptions = R.reject(R.prop('controller'), options)
+    const handlerOptions = R.omit(['controller'], options)
+    handlerOptions.url = req.url
 
     return Promise.resolve()
       .then(() => handler(parameters, handlerOptions))
