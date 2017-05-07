@@ -33,15 +33,15 @@ export function createHandler (options) {
           controller.errored(err)
         }
 
-        if (!(err instanceof error.HTTPError)) {
+        if (!R.is(error.HTTPError, err)) {
           res.status(500).json({
             error: error.formatError(new error.UnknownError())
           })
+        } else {
+          res.status(err.statusCode).json({
+            error: error.formatError(err)
+          })
         }
-
-        res.status(err.statusCode).json({
-          error: error.formatError(err)
-        })
       })
   }
 }
