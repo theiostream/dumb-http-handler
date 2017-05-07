@@ -18,8 +18,9 @@ export function formatError (err) {
 }
 
 export class HTTPError extends Error {
-  constructor () {
+  constructor (err) {
     super()
+    this.origin = err
     this.statusCode = 500
   }
 }
